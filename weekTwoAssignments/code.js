@@ -1,4 +1,4 @@
-let names = ["Mathew", "Alice", "Jordan", "Norman", "Horton"];
+let names = ["Lucas", "Alice", "Jordan", "Norman", "Horton"];
 let chosenName;
 let counter = 0;
 function generateName(){
