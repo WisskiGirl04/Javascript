@@ -10,3 +10,6 @@ function generateName(){
     <!--"document.getElementById('numberSlot').innerHTML = chosenName;">
     
 }
+function checkLetter(){
+    
+}
