@@ -12,9 +12,6 @@ function beginGame(){
     document.getElementById("checkButton").style.visibility = "visible";
     document.getElementById("incorrectLetters").style.visibility = "visible";
     console.log("Chosen name = " + chosenName);
-    console.log(names[(Math.floor(Math.random() * names.length))]);
-    <!--"document.getElementById('numberSlot').innerHTML = chosenName;">
-    
 }
 function checkLetter(){
     let userGuess = document.getElementById("letterInput").value.toLowerCase;
