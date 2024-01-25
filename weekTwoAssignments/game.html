@@ -6,11 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Time!</title>
     <script src="code.js"></script>
+    <style>
+        #name {visibility: hidden;}
+        #letterInput{visibility: hidden;}
+        #checkButton{visibility: hidden;}
+        #instructions{visibility: hidden;}
+        #incorrectLetters{visibility: hidden;}
+    </style>
 </head>
 <body>
     <h1>Let's Play HangMan!</h1>
-    <h1>Try to guess the name..</h1>
-    <table>
+
+    <p id="clickTheButtonText">Click the button to Begin!</p>
+
+    <button type="button" id="generateButton" onclick="beginGame()">Click Me</button>
+    
+    <h4 id="instructions">Enter a single letter and press the button!!</h4>
+
+    <p></p>
+    <table id="name">
         <tr>
             <th>   </th>
             <th id="nameChar1"> . </th>
@@ -29,15 +43,48 @@
             <th>___</th>
             <th>___</th>
         </tr>
+        <p></p>
+        <tr>
+            <input type="text" id="letterInput" maxlength="1">
+            <button type="button" id="checkButton" onclick="checkLetter()" >this button  :p</button>
+        </tr>
+        <p></p>
         <tr>
             <td><h3>Lives left: </h3></td>
             <td id="livesLeft"><h3>3</h3></td>
           </tr>
     </table>
-    <p id="clickTheButtonText">Click the button to Begin!</p>
+    <table id="incorrectLetters">
+        <tr>
+            <th>   </th>
+            <th id="a"> . </th>
+            <th id="b"> . </th>
+            <th id="c"> . </th>
+            <th id="d"> . </th>
+            <th id="e"> . </th>
+            <th id="f"> . </th>
+            <th id="g"> . </th>
+            <th id="h"> . </th>
+            <th id="i"> . </th>
+            <th id="j"> . </th>
+            <th id="k"> . </th>
+            <th id="l"> . </th>
+            <th id="m"> . </th>
+            <th id="n"> . </th>
+            <th id="o"> . </th>
+            <th id="p"> . </th>
+            <th id="q"> . </th>
+            <th id="r"> . </th>
+            <th id="s"> . </th>
+            <th id="t"> . </th>
+            <th id="u"> . </th>
+            <th id="v"> . </th>
+            <th id="w"> . </th>
+            <th id="x"> . </th>
+            <th id="y"> . </th>
+            <th id="z"> . </th>
+        </tr>
+    </table>
 
-    <button type="button" id="generateButton" onclick="generateName()">Click Me</button>
-
-    <p>Testing Line</p>
 </body>
 </html>
