@@ -7,11 +7,18 @@
     <title>Game Time!</title>
     <script src="code.js"></script>
     <style>
+        body{background-color: darkgrey; 
+            margin-left: 40%;
+            margin-top: 10%;
+            line-height: 175%;}
+            p{margin-left:6%;}
+            button{margin-left: 12%;}
         #name {visibility: hidden;}
         #letterInput{visibility: hidden;}
         #checkButton{visibility: hidden;}
         #instructions{visibility: hidden;}
         #incorrectLetters{visibility: hidden;}
+        #lives{margin-left:50%}
     </style>
 </head>
 <body>
@@ -49,7 +56,7 @@
             <button type="button" id="checkButton" onclick="checkLetter()" >this button  :p</button>
         </tr>
         <p></p>
-        <tr>
+        <tr id="lives">
             <td><h3>Lives left: </h3></td>
             <td id="livesLeft"><h3>3</h3></td>
           </tr>
