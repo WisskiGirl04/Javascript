@@ -1,12 +1,17 @@
 let names = ["lucas", "alice", "jordan", "norman", "horton"];
 let chosenName;
 let counter = 0;
-let livesLeft = 3;
+let livesLeft = 2;
+"let lifeLeft = document.getElementById('lifeLeft').value;"
 function beginGame(){
     chosenName = names[(Math.floor(Math.random() * names.length))];
     document.getElementById("clickTheButtonText").style.display = "none";
     document.getElementById("generateButton").style.display = "none";
     document.getElementById("name").style.visibility = "visible";
+    let lifeLeft = document.getElementById("lifeLeft").value;
+    console.log(lifeLeft);
+    lifeLeft = livesLeft;
+    console.log(lifeLeft);
 
     document.getElementById("letterInput").style.visibility = "visible";
     document.getElementById("instructions").style.visibility = "visible";
@@ -26,13 +31,13 @@ function checkLetter(){
         correctChar.TEXT_NODE.value = " " + userGuess + " ";
     } 
     else{
-        console.log(livesLeft);
-        livesLeft = livesLeft - 1;
-        console.log(livesLeft);
-        alert("letter was not found :(" + "\n" + "Trys left: " + livesLeft);
-        console.log("lives left: " + livesLeft);
+        alert("Incorrect  :(");
+        document.getElementById("lifeLeft").textContent = document.getElementById("lifeLeft").textContent - 1;
+        console.log("lives left: " + document.getElementById("lifeLeft").textContent);
+        if (document.getElementById("lifeLeft").textContent < 0){
+            alert("Oops you're out of lives," + "\n" + "\n" + "Try Again?"); 
+            window.location.reload();
+        }
     }
 
-    "alert('try again?');" 
-    "window.location.reload();"
 }
