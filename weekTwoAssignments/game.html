@@ -12,25 +12,30 @@
             margin-top: 10%;
             line-height: 175%;}
             p{margin-left:6%;}
-            button{margin-left: 12%;}
-        #name {visibility: hidden;}
+            button{margin-left: 12%; color:rgb(86, 34, 18);}
+        #name {visibility: hidden; font-size:large; font-weight: bolder; color:rgb(54, 135, 60)}
         #letterInput{visibility: hidden;}
         #checkButton{visibility: hidden;}
+        #lives{visibility: hidden; font-weight: bolder; font-style: italic; font-size:larger}
         #instructions{visibility: hidden;}
-        #incorrectLetters{visibility: hidden;}
-        #lives{margin-left:50%}
+        #incorrectLetters{visibility: hidden; color:rgb(75, 34, 4)}
+        #lives{margin-left:45%;}
+        table{border-style: groove;}
     </style>
 </head>
 <body>
+    <!-- "Start the game screen" -->
     <h1>Let's Play HangMan!</h1>
 
     <p id="clickTheButtonText">Click the button to Begin!</p>
-
+    <!-- Button to randomly generate chosen name for the game -->
+    <!-- And get rid of the 'start' screen and set the visibility to the actually game screen lines to visible -->
     <button type="button" id="generateButton" onclick="beginGame()">Click Me</button>
     
     <h4 id="instructions">Enter a single letter and press the button!!</h4>
 
     <p></p>
+    <!-- Table to hold the correct characters of the chosen name that the user has guessed -->
     <table id="name">
         <tr>
             <th>   </th>
@@ -52,16 +57,25 @@
         </tr>
         <p></p>
         <tr>
+            <!-- Button the user presses to enter their answer and check if the letter is in the chosen name -->
             <input type="text" id="letterInput" maxlength="1">
             <button type="button" id="checkButton" onclick="checkLetter()" >this button  :p</button>
         </tr>
-        <p></p>
-        <tr id="lives">
-            <td><h3>Lives left: </h3></td>
-            <td><h3 id="lifeLeft">3</h3></td>
-          </tr>
     </table>
+    <p></p>
+    <p></p>
+    <!-- Table to let the user keep track of how many more tries they have to guess the correct letters -->
+    <table id="lives">
+        <tr>
+            <td>Lives left: </td>
+            <td id="lifeLeft">3</td>
+      </tr>
+    </table>
+    <p></p>
+    <p></p>
+    <!-- Table to display to the user the incorrect answers they have previously entered -->
     <table id="incorrectLetters">
+        <th>Incorrect Guesses</th>
         <tr>
             <th>   </th>
             <th id="a"> . </th>
