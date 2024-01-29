@@ -8,7 +8,12 @@
          h1{color: red;}
     </style>
     <script>
-        
+        while (document.getElementById("usersInput") != null && document.getElementById("usersInput").length > 1){
+            let word = document.getElementById("usersInput");
+            console.log(word);
+            let wordReversed = word.innerHTM.split("").reverse().join();
+            console.log(wordReversed);
+        }
     </script>
 </head>
 <body>
