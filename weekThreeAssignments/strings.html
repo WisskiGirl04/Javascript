@@ -1,24 +1,68 @@
+<!--CrystaLynn Wisniewski-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Palindrome Checker</title>
     <style>
-         h1{color: red;}
+        body {background-color: rgb(0, 91, 0); margin-left: 35%; margin-top: 10%;font-family: Times New Roman; color: rgb(0, 229, 255);}
+        button{background-color: black; margin-left: 18%; font-family: Times New Roman; color: rgb(0, 229, 255);}
     </style>
-    <script>
-        while (document.getElementById("usersInput") != null && document.getElementById("usersInput").length > 1){
-            let word = document.getElementById("usersInput");
-            console.log(word);
-            let wordReversed = word.innerHTM.split("").reverse().join();
-            console.log(wordReversed);
-        }
-    </script>
 </head>
 <body>
-    <h1>Enter a word to check if it is a Palindrome!</h1>
-    <label></label>
-    <input type="text" id="usersInput">
+    <h1></h1>
+    <!--Paragraph to let the user know to click the button to be able to enter their string -->
+    <p>Hello, to check a sentence or word is a palidrome, click the button!</p>
+    <p></p>
+    <!--Button that will begin the loop of prompting the user and checking their string entry -->
+    <!--When the buttin is clicked the checkForPalindrome function will run -->
+    <button type="button" onclick="checkForPalindrome()" >Click to Begin</button>
+    <script>
+    function checkForPalindrome(){
+        // Variable to hold the users answer for if they want to check a word
+        // This variable is the condition for the loop and is set to yes when the beginning button is pressed
+        let userAnswer = "yes";
+        // Loop to run while the user wants to enter a string to check
+        while (userAnswer === "yes"){
+            // Variables to hold the users string so we can check if it is a palindrome
+            let userString = " ";
+            let stringNoSpaces = " ";
+            let reversedString = "";
+            // Prompt the user to enter a string then save that answer as userString
+            userString = prompt("Please Enter a Word or Sentence!", "");
+            // If the userString is not empty or "null"
+            if (userString != null){
+                // Replace the spaces in the userString with nothing to remove the spaces and save the string in stringNoSpaces
+                stringNoSpaces = userString.replace(/\s/g, '');
+                stringNoSpaces = stringNoSpaces.toLowerCase();
+            }
+            // For each character in the stringNoSpaces
+            for (i=stringNoSpaces.length -1; i>=0; i--){
+                // Set reversedString to be equal to itself + the current stringNoSpaces variable
+                reversedString = reversedString + stringNoSpaces[i];
+            }
+            // If the userString is null
+            if(userString == null){
+                // Set userAnswer to no to end the loop
+                userAnswer = "no";
+            // If the userString does not equal null
+            } else {
+                // Then if the reversed string is the same as the string with no spaces
+                if (reversedString === stringNoSpaces){
+                    // Alert the user their string is a palindrome
+                    // And ask if they wish to enter another word, then save their answer to userAnswer
+                    userAnswer = prompt("'" + userString + "' is a palindrome!!" + "\n" + "Want to check another sentence? Type 'yes'.", "").toLowerCase();
+                // Then if the reversed string is not the same as the string with no spaces
+                } else {
+                    // Alert the user their string is not a palindrome
+                    // And ask if they wish to enter another word, then save their answer to userAnswer
+                    userAnswer = prompt(userString + " is NOT a palindrome." + "\n" + "Want to check another sentence? Type 'yes'.", "").toLowerCase();
+                }   
+            }
+
+        }
+    }
+    </script>
 </body>
 </html>
