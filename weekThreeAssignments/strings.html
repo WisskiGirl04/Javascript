@@ -6,23 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Palindrome Checker</title>
     <style>
-        body {background-color: rgb(0, 91, 0); margin-left: 35%; margin-top: 10%;font-family: Times New Roman; color: rgb(0, 229, 255);}
+        body {background-color: rgb(0, 91, 0); margin-top: 10%;}
+        .assignmentOne {margin-left: 35%; font-family: Times New Roman; color: rgb(0, 229, 255);}
         button{background-color: black; margin-left: 18%; font-family: Times New Roman; color: rgb(0, 229, 255);}
     </style>
 </head>
 <body>
-    <h1></h1>
+    <h1 class="assignmentOne"></h1>
     <!--Paragraph to let the user know to click the button to be able to enter their string -->
-    <p>Hello, to check a sentence or word is a palidrome, click the button!</p>
+    <p class="assignmentOne">Hello, to check a sentence or word is a palidrome, click the button!</p>
     <p></p>
     <!--Button that will begin the loop of prompting the user and checking their string entry -->
     <!--When the buttin is clicked the checkForPalindrome function will run -->
-    <button type="button" onclick="checkForPalindrome()" >Click to Begin</button>
+    <button type="button" class="assignmentOne" onclick="checkForPalindrome()" >Click to Begin</button>
     <!--ASSIGNMENT 1 ENDS HERE-->
-    <label for="username">Please Enter Your Username: </label>
-    <input type="text" id="username" maxlength="20">
-    <label for="password">Please Enter Your Password: </label>
-    <input type="text" id="password">
+    <hr>
+    <form id="infoForm" onSubmit="checkForm()">
+    <label for="fName">Please Enter Your First Name: </label>
+    <input type="text" id="fName" name="fName" required maxlength="20" placeholder="First Name" value="tempFirst"/><br>
+    <label for="lName">Please Enter Your Last Name: </label>
+    <input type="text" id="lName" name="lName" required maxlength="20" placeholder="Last Name" value="tempLast"/><br>
+    <label for="zipCode">Please Enter Your 5 Digit ZipCode: </label>
+    <input type="text" id="zipCode" name="zipCode" required maxlength="5" placeholder="00000" value="00000"/><br>
+    <input type="submit" value="Submit"/>
+    </form>
     <script>
     function checkForPalindrome(){
         // Variable to hold the users answer for if they want to check a word
@@ -67,6 +74,16 @@
             }
         }
     } // ASSIGMENT 1 ENDS HERE
+    function checkForm(){
+        const fName = document.getElementById("fName").value;
+        const lName = document.getElementById("lName").value;
+        let fullName = fName + lName;
+        const zip = document.getElementById("zipCode").value;
+        console.log(fName);
+        console.log(lName);
+        console.log(zip);
+        document.getElementById("body").style.backgroundColor = "red";
+    }
 
     </script>
 </body>
