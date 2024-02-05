@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Palindrome Checker</title>
     <style>
-        body {background-color: rgb(0, 91, 0); }
+        body {background-color: rgb(87, 151, 149); }
         .assignmentOne {margin-left: 35%; font-family: Times New Roman; color: rgb(0, 229, 255); display: none;}
         .assignmentOne button{background-color: black; margin-left: 18%; font-family: Times New Roman; color: rgb(0, 229, 255);}
-        #infoForm { width: 300px; margin: 20vh auto 0 auto; padding: 20px; background-color: whitesmoke; border-radius: 4px; font-size: 12px;}
-        #infoForm h1 {color: #0f2027; text-align: center;}
+        #infoForm {background-image: url('https://e0.pxfuel.com/wallpapers/270/37/desktop-wallpaper-light-purple-background-bright-purple.jpg'); width: 300px; height: 300px; margin: 20vh auto 0 auto; padding: 20px; background-color: whitesmoke; border-radius: 4px; font-size: 12px;}
+        #infoForm h1 {color: #0f2027; text-align: center; font-family: Trebuchet ms;}
         #infoForm button {padding: 10px; margin-top: 10px; width: 100%; color: white; background-color: purple; border: none; border-radius: 4px;}
-        .userInput {display: flex; flex-direction: column; margin-right: 20px;}
+        .userInput {display: flex; flex-direction: column; margin-right: 20px; font-weight: bold; font-family: 'Trebuchet MS'; font-size: larger;}
         .input-control input {border: 2px dotted black;border-radius: 4px;display: block;font-size: 12px;padding: 10px;width: 100%;}
         .input-control input:focus {outline: 0;}
         .input-control.success input {border-color: #09c372;}
@@ -95,15 +95,29 @@
             }
         }
     } // ASSIGMENT 1 ENDS HERE
+    const form = document.getElementById("infoForm");
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        checkForm();
+    });
+
     function checkForm(){
-        const fName = document.getElementById("fName").value;
-        const lName = document.getElementById("lName").value;
-        let fullName = fName + lName;
-        const zip = document.getElementById("zipCode").value;
-        console.log(fName);
-        console.log(lName);
+    const fName = document.getElementById("fName").value;
+    const lName = document.getElementById("lName").value;
+    const zip = document.getElementById("zipCode").value;
+        let fullName = fName + " " + lName;
+        console.log(fName + " " + fName.length);
+        console.log(lName + " " + lName.length);
         console.log(zip);
-        document.getElementById("body").style.backgroundColor = "red";
+        console.log(fullName + " " + fullName.length);
+        if (fullName.length > 21){
+            alert("Invalid Entry, Your full name must be 20 characters or less");
+        } else {
+            if (zip.length != 5){
+                document.body.style.backgroundColor = "red";
+            }
+        }
     }
 
     </script>
