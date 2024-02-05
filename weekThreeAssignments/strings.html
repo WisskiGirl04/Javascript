@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Palindrome Checker</title>
     <style>
-        body {background-color: rgb(87, 151, 149); }
+        body {background-color: rgb(87, 151, 149); background-repeat: no-repeat; background-position-y: center; background-position-x: center; background-attachment: fixed;}
         .assignmentOne {margin-left: 35%; font-family: Times New Roman; color: rgb(0, 229, 255); display: none;}
         .assignmentOne button{background-color: black; margin-left: 18%; font-family: Times New Roman; color: rgb(0, 229, 255);}
+        .header {background-color: indigo; text-align: center; color:rgba(0, 255, 255, 0.7)}
         #infoForm {background-image: url('https://e0.pxfuel.com/wallpapers/270/37/desktop-wallpaper-light-purple-background-bright-purple.jpg'); width: 300px; height: 300px; margin: 20vh auto 0 auto; padding: 20px; background-color: whitesmoke; border-radius: 4px; font-size: 12px;}
         #infoForm h1 {color: #0f2027; text-align: center; font-family: Trebuchet ms;}
         #infoForm button {padding: 10px; margin-top: 10px; width: 100%; color: white; background-color: purple; border: none; border-radius: 4px;}
@@ -30,7 +31,11 @@
     <button type="button" class="assignmentOne" onclick="checkForPalindrome()" >Click to Begin</button>
 </div>
     <!--ASSIGNMENT 1 ENDS HERE-->
-    <div class="container">
+    <div class="container" id="container">
+        <div class="header">
+        <h1>Your Own Special Message!</h1>
+        <p>*Please fill out the form below to reveal your special message!</p>
+        </div>
         <form id="infoForm" action="/">
             <h1>Information Registration</h1>
             <div class="userInput">
@@ -115,7 +120,12 @@
             alert("Invalid Entry, Your full name must be 20 characters or less");
         } else {
             if (zip.length != 5){
-                document.body.style.backgroundColor = "red";
+                alert("Invalid Entry, Your zip code must be 5 digits long");
+            } else{
+                document.getElementById("container").style.display = "none";
+                document.body.style.backgroundColor = "black";
+                document.body.style.backgroundImage = "url('https://i.pinimg.com/originals/ab/a1/ea/aba1ea74f6558b344c8107f9c7343514.jpg')";
+
             }
         }
     }
