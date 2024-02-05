@@ -1,6 +1,6 @@
 <!--CrystaLynn Wisniewski-->
 <!DOCTYPE html>
-<html lang="en">
+<lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +19,7 @@
         .input-control.success input {border-color: #09c372;}
         .input-control.error input {border-color: #ff3860;}
         .input-control .error {color: #ff3860; font-size: 9px; height: 13px;}
+        .audio {margin-left: 39%;}
     </style>
 </head>
 <div>
@@ -58,7 +59,15 @@
                 <!--Button to press when form is filled out to submit it-->
                 <button type="submit">Submit</button>
         </form>
-    </div>    
+    </div> 
+    <!--ASSIGNMENT 2 ENDS HERE -->
+    <div class="audio">
+        <!--Audio to be played-->
+        <audio id="myaudio" src="c:\Users\Cryst\Downloads\forest-lullaby-110624.mp3">
+            <!--Note to show if the audio cannot play due to the brower-->
+            <p>Your browser does not support this audio</p>
+        </audio>
+    </div>
     <script>
     function checkForPalindrome(){
         // Variable to hold the users answer for if they want to check a word
@@ -115,6 +124,10 @@
     });
 
     function checkForm(){
+        // Save the audio in a variable
+        const audio = document.getElementById("myaudio");
+        // Play the audio
+        audio.play();
         // Variables to hold the values in the input boxes
         const fName = document.getElementById("fName").value;
         const lName = document.getElementById("lName").value;
