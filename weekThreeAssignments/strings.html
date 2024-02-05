@@ -126,8 +126,6 @@
     function checkForm(){
         // Save the audio in a variable
         const audio = document.getElementById("myaudio");
-        // Play the audio
-        audio.play();
         // Variables to hold the values in the input boxes
         const fName = document.getElementById("fName").value;
         const lName = document.getElementById("lName").value;
@@ -152,6 +150,8 @@
                     alert("Invalid Entry, Your zip code must be 5 digits long");
                 // If the zip code is valid and has 5 digits
                 } else{
+                    // Play the audio
+                    audio.play();
                     // Get rid of the form and header by setting the display to none
                     document.getElementById("container").style.display = "none";
                     // Change the background color to black
