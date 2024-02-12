@@ -1,0 +1,181 @@
+<!--CrystaLynn Wisniewski-->
+<!DOCTYPE html>
+<lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker</title>
+    <style>
+        body {background-color: rgb(87, 151, 149); background-repeat: no-repeat; background-position-y: center; background-position-x: center; background-attachment: fixed;}
+        .assignmentOne {margin-left: 35%; font-family: Times New Roman; color: rgb(0, 229, 255); display: none;}
+        .assignmentOne button{background-color: black; margin-left: 18%; font-family: Times New Roman; color: rgb(0, 229, 255);}
+        .header {background-color: indigo; text-align: center; color:rgba(0, 255, 255, 0.7)}
+        #infoForm {background-image: url('https://e0.pxfuel.com/wallpapers/270/37/desktop-wallpaper-light-purple-background-bright-purple.jpg'); width: 300px; height: 300px; margin: 20vh auto 0 auto; padding: 20px; background-color: whitesmoke; border-radius: 4px; font-size: 12px;}
+        #infoForm h1 {color: #0f2027; text-align: center; font-family: Trebuchet ms;}
+        #infoForm button {padding: 10px; margin-top: 10px; width: 100%; color: white; background-color: purple; border: none; border-radius: 4px;}
+        .userInput {display: flex; flex-direction: column; margin-right: 20px; font-weight: bold; font-family: 'Trebuchet MS'; font-size: larger;}
+        .input-control input {border: 2px dotted black;border-radius: 4px;display: block;font-size: 12px;padding: 10px;width: 100%;}
+        .input-control input:focus {outline: 0;}
+        .input-control.success input {border-color: #09c372;}
+        .input-control.error input {border-color: #ff3860;}
+        .input-control .error {color: #ff3860; font-size: 9px; height: 13px;}
+        .audio {margin-left: 39%;}
+    </style>
+</head>
+<body>
+    <header>
+        <h1></h1>  
+    </header>
+    <!-- Navigation Links -->
+    <nav>
+        <h2>
+        <a href="index.html"> HOME </a>
+        <a href="boards.html"> Boards page </a>
+        <a href="game.html"> Play a Game </a>
+        <a href="table.html"> Grades Table </a>
+    </h2>
+    </nav>
+<div>
+    <h1 class="assignmentOne"></h1>
+    <!--Paragraph to let the user know to click the button to be able to enter their string -->
+    <p class="assignmentOne">Hello, to check a sentence or word is a palidrome, click the button!</p>
+    <p></p>
+    <!--Button that will begin the loop of prompting the user and checking their string entry -->
+    <!--When the buttin is clicked the checkForPalindrome function will run -->
+    <button type="button" class="assignmentOne" onclick="checkForPalindrome()" >Click to Begin</button>
+</div>
+    <!--ASSIGNMENT 1 ENDS HERE-->
+    <div class="container" id="container">
+        <!--Header of the page-->
+        <div class="header">
+        <h1>Your Own Special Message!</h1>
+        <p>*Please fill out the form below to reveal your special message!</p>
+        </div>
+        <!--Form for user to fill out-->
+        <form id="infoForm" action="/">
+            <h1>Information Registration</h1>
+            <div class="userInput">
+                <!--Input box for their first name-->
+                <label for="fName">Please Enter Your First Name: </label>
+                <input type="text" id="fName" name="fName" required maxlength="20" placeholder="First Name"/>
+            </div>
+            <div class="userInput">
+                <!--Input box for their last name-->
+                <label for="lName">Please Enter Your Last Name: </label>
+                <input type="text" id="lName" name="lName" required maxlength="20" placeholder="Last Name"/><br>
+            </div>
+            <div class="userInput">
+                <!--Input box for their zip code-->
+                <label for="zipCode">Please Enter Your 5 Digit ZipCode: </label>
+                <input type="text" id="zipCode" name="zipCode" required maxlength="5" placeholder="00000"/><br>
+            </div>    
+                <!--Button to press when form is filled out to submit it-->
+                <button type="submit">Submit</button>
+        </form>
+    </div> 
+    <!--ASSIGNMENT 2 ENDS HERE -->
+    <div class="audio">
+        <!--Audio to be played-->
+        <audio id="myaudio" src="c:\Users\Cryst\Downloads\forest-lullaby-110624.mp3">
+            <!--Note to show if the audio cannot play due to the brower-->
+            <p>Your browser does not support this audio</p>
+        </audio>
+    </div>
+    <script>
+    function checkForPalindrome(){
+        // Variable to hold the users answer for if they want to check a word
+        // This variable is the condition for the loop and is set to yes when the beginning button is pressed
+        let userAnswer = "yes";
+        // Loop to run while the user wants to enter a string to check
+        while (userAnswer === "yes"){
+            // Variables to hold the users string so we can check if it is a palindrome
+            let userString = " ";
+            let stringNoSpaces = " ";
+            let reversedString = "";
+            // Prompt the user to enter a string then save that answer as userString
+            userString = prompt("Please Enter a Word or Sentence!", "");
+            // If the userString is not empty or "null"
+            if (userString != null){
+                // Replace the spaces in the userString with nothing to remove the spaces and save the string in stringNoSpaces
+                stringNoSpaces = userString.replace(/\s/g, '');
+                stringNoSpaces = stringNoSpaces.toLowerCase();
+            }
+            // For each character in the stringNoSpaces
+            for (i=stringNoSpaces.length -1; i>=0; i--){
+                // Set reversedString to be equal to itself + the current stringNoSpaces variable
+                reversedString = reversedString + stringNoSpaces[i];
+            }
+            // If the userString is null
+            if(userString == null){
+                // Set userAnswer to no to end the loop
+                userAnswer = "no";
+            // If the userString does not equal null
+            } else {
+                // Then if the reversed string is the same as the string with no spaces
+                if (reversedString === stringNoSpaces){
+                    // Alert the user their string is a palindrome
+                    // And ask if they wish to enter another word, then save their answer to userAnswer
+                    userAnswer = prompt("'" + userString + "' is a palindrome!!" + "\n" + "Want to check another sentence? Type 'yes'.", "").toLowerCase();
+                // Then if the reversed string is not the same as the string with no spaces
+                } else {
+                    // Alert the user their string is not a palindrome
+                    // And ask if they wish to enter another word, then save their answer to userAnswer
+                    userAnswer = prompt(userString + " is NOT a palindrome." + "\n" + "Want to check another sentence? Type 'yes'.", "").toLowerCase();
+                }   
+            }
+        }
+    } // ASSIGMENT 1 ENDS HERE
+    // Variable to hold the form element
+    const form = document.getElementById("infoForm");
+    // Added an event listener to the form using the variable
+    // This event listener listens for the user to click the 'submit' button
+    form.addEventListener('submit', e => {
+        // Prevent Default alerts the user to fill out a box if it is empty
+        e.preventDefault();
+        // Call/Run the checkForm function
+        checkForm();
+    });
+
+    function checkForm(){
+        // Save the audio in a variable
+        const audio = document.getElementById("myaudio");
+        // Variables to hold the values in the input boxes
+        const fName = document.getElementById("fName").value;
+        const lName = document.getElementById("lName").value;
+        const zip = document.getElementById("zipCode").value;
+            // Add the names together to create the full name, but add a space inbetween the names
+            let fullName = fName + " " + lName;
+            // Debugging console logs
+            console.log(fName + " " + fName.length);
+            console.log(lName + " " + lName.length);
+            console.log(zip);
+            console.log(fullName + " " + fullName.length);
+            // If the full name is more than 21 characters combined
+            // I did 21 to account for the 1 character used for the space
+            if (fullName.length > 21){
+                // Alert the user that their entry is too long
+                alert("Invalid Entry, Your full name must be 20 characters or less");
+            // If the name is not too long then
+            } else {
+                // If the zip code isn't correct
+                if (zip.length != 5){
+                    // Alert the user that their zip code entry is invalid
+                    alert("Invalid Entry, Your zip code must be 5 digits long");
+                // If the zip code is valid and has 5 digits
+                } else{
+                    // Play the audio
+                    audio.play();
+                    // Get rid of the form and header by setting the display to none
+                    document.getElementById("container").style.display = "none";
+                    // Change the background color to black
+                    document.body.style.backgroundColor = "black";
+                    // Reveal the secret message by setting the background image to our message image
+                    document.body.style.backgroundImage = "url('https://i.pinimg.com/originals/ab/a1/ea/aba1ea74f6558b344c8107f9c7343514.jpg')";
+
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

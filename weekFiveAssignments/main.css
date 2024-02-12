@@ -2,13 +2,10 @@
 
 
 h1 {text-align: center;}
-nav {height: 6000px;
-     width: 200px;
-     float: left;
-     padding: 5px;
-     line-height: 30px;}
-body {background-color: thistle;
-      color: darkorchid;}
-#programmingMemeImage {margin-right: 200px;}
-footer {text-align: center;
-        margin-right: 200px;}
+nav {background-color: rgb(42, 4, 57);overflow: hidden; text-decoration: underline; letter-spacing: -2px;}
+nav a {float: left; display: block; color: aquamarine; text-align: center; padding: 14px 16px;
+text-decoration: none; border-bottom: 3px solid darkblue;}
+nav a:hover{border-bottom: 3px solid red;}
+body {background-color: thistle; color: darkorchid;}
+#programmingMemeImage {align-self: center;}
+footer {margin-top: 10%;text-align: center;}
