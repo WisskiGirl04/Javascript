@@ -1,5 +1,5 @@
 
-h1 {text-align: center;}
+.header {text-align: center;}
 nav {height: 6000px;
      width: 200px;
      float: left;
@@ -7,6 +7,8 @@ nav {height: 6000px;
      line-height: 30px;}
 body {background-color: thistle;
       color: darkorchid;}
-#programmingMemeImage {margin-right: 200px;}
+#programmingMemeImage {margin-right: 200px;  top: 0; left: 0; animation: none; position: absolute;}
+#programmingMemeImage.animate{animation: moveImage 5s infinite;}
 footer {text-align: center;
         margin-right: 200px;}
+@keyframes moveImage { 0%{top: 0; left: 0;} 25%{top: 0; left: 80%} 50%{top: 50%; left: 80%;} 75%{top: 50%; left: 0;} 100%{top: 0; left: 0;}}

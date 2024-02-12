@@ -1,3 +1,5 @@
+<!--2/2/24--->
+<!--CrystaLynn Wisniewski-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,10 +12,82 @@
     </style>
 </head>
 <body>
+    <div class="header">
     <h1>  MEME TIME   </h1>
     <p>   </p>
-    <img id="programmingMemeImage" 
+    <!--Buttons to start and stop the image from moving-->
+    <button type="button" id="startBn" onClick="disableStart()">BOUNCE</button>
+    <button type="button" id="stopBn" onClick="disableStop()" disabled>STOP</button>
+    </div>
+    <!--The Image-->
+    <img id="programmingMemeImage" alt="Programming Meme"
          src="https://uploads-ssl.webflow.com/5f3c19f18169b62a0d0bf387/60d33be7eedf8e1f31aabcec_BwENfmI0CU5dZGYlSyo142mpfG08-rYgTS-Qm47uMUXN6JXtmdZvtzVzTooUQdXTWmTD8uzF9N6XQJA2vUIMi53tunFyVtvOBJTNfOjHit2P_JkTmFzFsK7ep6Vb9781XZnRAryH.png"
-         height = "350" width = "350">      
+         height = "350" width = "350">
 </body>
+<script>
+    // Variables to save the pages elements
+    let startBn = document.getElementById("startBn");
+    let stopBn = document.getElementById("stopBn");
+    let myImage = document.getElementById("programmingMemeImage");
+
+    // Called when the start button is clicked
+    function disableStart(){
+        // Disable the start button
+        startBn.disabled = true;
+        // Enable the stop button
+        stopBn.disabled = false;
+        // Call the start animation function
+        StartAnimation();
+    }
+    // Called whent the stop button is clicked
+    function disableStop(){
+        // Disable the stop button
+        stopBn.disabled = true;
+        // Enable the start button
+        startBn.disabled = false;
+        // Call the stop animation function
+        StopAnimation();
+    }
+
+    function StartAnimation(){
+        // Animate class is defined in the main.css
+        // Add the animate class to the image to make the image start moving
+        myImage.classList.add("animate");
+    }
+    function MoveImage(){
+        // Save the current top and left locations of the image
+        let currentTop = parseInt(myImage.style.top) || 0;
+        let currentLeft = parseInt(myImage.style.left) || 0;
+
+        // If the top of the image is hitting the top of the screen
+        // and the left edge of the screen
+        if (currentTop === 0 && currentLeft === 0) {
+            // Move the image to the right
+            myImage.style.top = "0";
+            myImage.style.left = "100%";
+        // If the image is hitting the top of the screen
+        // and the right edge of the screen
+        } else if (currentTop === 0 && currentLeft === 100) {
+            // Move the image down the right side of the screen
+            myImage.style.top = "100%";
+            myImage.style.left = "100%";
+        // If the image is at the bottom right corner
+        } else if (currentTop === 100 && currentLeft === 100) {
+            // Move the image across the bottom to the left
+            myImage.style.top = "100%";
+            myImage.style.left = "0";
+        // If the image is in the bottom left of the screen
+        } else if (currentTop === 100 && currentLeft === 0) {
+            // Move the image up to the top left of the screen
+            myImage.style.top = "0";
+            myImage.style.left = "0";
+        }
+    }
+
+    function StopAnimation(){
+        // Remove the animate class from the image to stop the animation
+        myImage.classList.remove("animate");
+    }
+
+</script>
 </html>
